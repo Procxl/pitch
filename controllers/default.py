@@ -18,9 +18,12 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    response.flash = T("Welcome to web2py!")
-    return dict(message=T('Hello World. I \'m Ramakrishna.'))
-
+    #response.flash = T("Welcome to web2py!")
+    #return dict(message=T('Hello World. I \'m Ramakrishna.'))
+    """Show all users and posts"""
+    users = db(db.auth_user.id > 0).select()
+    posts = db(db.post.id > 0).select()
+    return dict(users=users, posts=posts)
 
 def user():
     """
@@ -74,3 +77,9 @@ def data():
       LOAD('default','data.load',args='tables',ajax=True,user_signature=True)
     """
     return dict(form=crud())
+
+@auth.requires_login()
+def entry_post():
+  """returns a form where user can enter posts"""
+  form = crud.create(db.post)
+  return dict(form=form)
