@@ -53,3 +53,10 @@ CREATE TABLE auth_cas(
     renew CHAR(1)
 );
 success!
+timestamp: 2014-08-01T09:11:04.870609
+CREATE TABLE post(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    p_content TEXT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
