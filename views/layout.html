@@ -57,11 +57,9 @@
     (left_sidebar_enabled and 1 or 0)+(right_sidebar_enabled and 1 or 0)]
   }}
 
-  <!-- uncomment here to load jquery-ui
        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css" type="text/css" media="all" />
        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
-       uncomment to load jquery-ui //-->
-  <noscript><link href="{{=URL('static', 'css/web2py_bootstrap_nojs.css')}}" rel="stylesheet" type="text/css" /></noscript>
+      <noscript><link href="{{=URL('static', 'css/web2py_bootstrap_nojs.css')}}" rel="stylesheet" type="text/css" /></noscript>
   {{block head}}{{end}}
 </head>
 
@@ -91,7 +89,7 @@
 
   <div class="container">
     <!-- Masthead ================================================== -->
-    <header class="mastheader row" id="header">
+<!--    <header class="mastheader row" id="header">
       {{if response.title:}}
         <div class="span12">
             <div class="page-header">
@@ -102,7 +100,7 @@
             </div>
         </div>
 	{{pass}}
-    </header>
+    </header>-->
 
     <section id="main" class="main row">
         {{if left_sidebar_enabled:}}
@@ -136,10 +134,6 @@
             <div class="footer-content">
                 {{block footer}} <!-- this is default footer -->
                 <div class="copyright pull-left">{{=T('Copyright')}} &#169; {{=request.now.year}}</div>
-                <div id="poweredBy" class="pull-right">
-                    {{=T('Powered by')}}
-                    <a href="http://www.web2py.com/">web2py</a>
-                </div>
                 {{end}}
             </div>
         </footer>
@@ -163,7 +157,7 @@
     'Google Analytics':{trackingId:'{{=response.google_analytics_id}}'} 
   });</script>
   {{pass}}
-  <script src="{{=URL('static','js/share.js',vars=dict(static=URL('static','images')))}}"></script>
+  <!--<script src="{{=URL('static','js/share.js',vars=dict(static=URL('static','images')))}}"></script>-->
 </body>
 </html>
 

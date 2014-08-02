@@ -49,9 +49,9 @@ auth.define_tables(username=False, signature=False)
 
 ## configure email
 mail = auth.settings.mailer
-mail.settings.server = 'logging' or 'smtp.gmail.com:587'
-mail.settings.sender = 'you@gmail.com'
-mail.settings.login = 'username:password'
+mail.settings.server = 'logging' or 'in5.hostgator.in'
+mail.settings.sender = 'info@sristibiosciences.com'
+mail.settings.login = 'info:Admin@123'
 
 ## configure auth policy
 auth.settings.registration_requires_verification = False
@@ -86,3 +86,13 @@ use_janrain(auth, filename='private/janrain.key')
 db.define_table('post',
   Field('p_content', 'text'),
   Field('user_id', db.auth_user))
+
+db.define_table('product',
+   Field('name', 'text'),
+   Field('qty', 'double'),
+   Field('qlty_spec', 'text'),
+   Field('pkg_spec', 'text'),
+   Field('other_spec', 'text'),
+   Field('priority', 'string'),
+   Field('reqd_by_dt', 'date'),
+   Field('comments', 'text'))

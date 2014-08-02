@@ -719,3 +719,9 @@ web2py_calc_entropy = jQuery.web2py.calc_entropy;
 */
 /* compatibility code - end*/
 
+var flashBox = jQuery(".flash"), flashTimer;
+flashBox.click(function(){
+  if (flashTimer) clearTimeout(flashTimer);
+  flashBox.fadeOut(400, function(){jQuery(".flash").html('');});
+});
+flashTimer = setTimeout(function(){flashBox.fadeOut(400, function(){jQuery(".flash").html('');});}, 8000);

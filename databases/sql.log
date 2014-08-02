@@ -60,3 +60,29 @@ CREATE TABLE post(
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
 );
 success!
+timestamp: 2014-08-01T13:45:49.703321
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    qty DOUBLE,
+    qlty_spec TEXT,
+    pkg_spec TEXT,
+    other_spec TEXT,
+    priority CHAR(512),
+    reqd_by_dt DATE,
+    comments TEXT
+);
+success!
+timestamp: 2014-08-01T13:47:23.366442
+CREATE TABLE product(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    qty DOUBLE,
+    qlty_spec TEXT,
+    pkg_spec TEXT,
+    other_spec TEXT,
+    priority CHAR(512),
+    reqd_by_dt DATE,
+    comments TEXT
+);
+success!

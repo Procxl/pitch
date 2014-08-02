@@ -18,13 +18,16 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    #response.flash = T("Welcome to web2py!")
-    #return dict(message=T('Hello World. I \'m Ramakrishna.'))
-    """Show all users and posts"""
-    users = db(db.auth_user.id > 0).select()
-    posts = db(db.post.id > 0).select()
-    return dict(users=users, posts=posts)
+    response.flash = T("Welcome to Product Tracker!")
+    return dict(message=T('Hello World. I \'m Ramakrishna.'))
 
+def products():
+    """Show all users and posts"""
+    #users = db(db.auth_user.id > 0).select()
+    #posts = db(db.post.id > 0).select()
+    grid = SQLFORM.smartgrid(db.product, deletable=False)
+    return dict(products = grid)
+  
 def user():
     """
     exposes:
@@ -82,4 +85,10 @@ def data():
 def entry_post():
   """returns a form where user can enter posts"""
   form = crud.create(db.post)
+  return dict(form=form)
+
+@auth.requires_login()
+def entry_product():
+  """returns a form where user can enter posts"""
+  form = crud.create(db.product)
   return dict(form=form)
