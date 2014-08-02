@@ -19,13 +19,14 @@ def index():
     return auth.wiki()
     """
     response.flash = T("Welcome to Product Tracker!")
-    return dict(message=T('Hello World. I \'m Ramakrishna.'))
-
+    return dict(message=T(''))
+  
+@auth.requires_login()
 def products():
     """Show all users and posts"""
     #users = db(db.auth_user.id > 0).select()
     #posts = db(db.post.id > 0).select()
-    grid = SQLFORM.smartgrid(db.product, deletable=False)
+    grid = SQLFORM.smartgrid(db.product, deletable=False, exportclasses=None, csv=False,create=False,user_signature=False)
     return dict(products = grid)
   
 def user():

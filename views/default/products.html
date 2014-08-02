@@ -1,5 +1,6 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
+{{=A('Add', callback=URL('entry_product'))}}
 {{if 'content' in globals():}}
 {{=grid}}
 {{else:}}

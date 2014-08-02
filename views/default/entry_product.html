@@ -1,11 +1,8 @@
+<h2>Edit</h2>
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
-
-{{if 'message' in globals():}}
-<h3>{{=message}}</h3>
-<p>Stay tuned for more updates...</p>
-{{elif 'content' in globals():}}
-{{=content}}
+{{if 'content' in globals():}}
+{{=grid}}
 {{else:}}
 {{=BEAUTIFY(response._vars)}}
 {{pass}}
